@@ -1,18 +1,21 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const express = require("express");
+const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
+const { sequelize } = require("./models");
 
 dotenv.config();
-const db = require('./config/db'); // Import the database configuration
-
 const app = express();
-const PORT = process.env.PORT || 3000;
-app.use(express.json());
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Library Management System API');
+// // Routes
+// app.use("/api/auth", require("./routes/authRoutes"));
+// app.use("/api/books", require("./routes/bookRoutes"));
+// app.use("/api/borrow", require("./routes/borrowRoutes"));
+// app.use("/api/fines", require("./routes/fineRoutes"));
+
+const PORT = process.env.PORT || 5000;
+
+sequelize.sync({ alter: true }).then(() => {
+  console.log("✅ Database synced");
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 });
-  
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-}); 

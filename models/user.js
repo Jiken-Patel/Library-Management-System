@@ -1,12 +1,12 @@
-const { datatypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const User = sequelize.define('User', {
     name: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
@@ -14,11 +14,11 @@ const User = sequelize.define('User', {
         }
     },
     password: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     role: {
-        type: datatypes.ENUM('admin', 'librarian', 'student'),
+        type: DataTypes.ENUM('admin', 'librarian', 'student'),
         defaultValue: 'student'
     }
 });

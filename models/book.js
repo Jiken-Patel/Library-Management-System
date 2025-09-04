@@ -1,25 +1,25 @@
-const {datatypes} = require('sequelize');
+const {DataTypes} = require('sequelize');
 const sequelize = require('../config/db');  
 
 const Book = sequelize.define('Book', {
     title: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     author: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false    
     },
     category: {
-        type: datatypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
-    totalcopies: {
-        type: datatypes.INTEGER,
+    totalCopies: {
+        type: DataTypes.INTEGER,
         allowNull: false    
     },
-    availablecopies: {
-        type: datatypes.INTEGER,
+    availableCopies: {
+        type: DataTypes.INTEGER,
         allowNull: false    
     }
 });

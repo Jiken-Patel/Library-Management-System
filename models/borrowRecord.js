@@ -1,22 +1,22 @@
-const {datatypes} = require('sequelize');
+const {DataTypes} = require('sequelize');
 const sequelize = require('../config/db');  
 
 const BorrowRecord = sequelize.define('BorrowRecord', {
     borrowDate: {
-        type: datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: datatypes.NOW
+        defaultValue: DataTypes.NOW
     },
     dueDate: {
-        type: datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull: false
     },
     returnDate: {
-        type: datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull: true
     },
     status: {
-        type: datatypes.ENUM('borrowed', 'returned', 'overdue'),
+        type: DataTypes.ENUM('borrowed', 'returned', 'overdue'),
         defaultValue: 'borrowed'
     }
 });
