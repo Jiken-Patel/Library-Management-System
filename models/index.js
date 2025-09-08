@@ -11,8 +11,8 @@ BorrowRecord.belongsTo(User, { foreignKey: 'userId' });
 Book.hasMany(BorrowRecord, { foreignKey: 'bookId'});
 BorrowRecord.belongsTo(Book, { foreignKey: 'bookId' });
 
-BorrowRecord.hasOne(Fine, { foreignKey: 'borrowRecordId'});
-Fine.belongsTo(BorrowRecord, { foreignKey: 'borrowRecordId' });
+BorrowRecord.hasOne(Fine, { foreignKey: 'borrowId'});
+Fine.belongsTo(BorrowRecord, { foreignKey: 'borrowId' });
 
 User.hasMany(Fine, { foreignKey: 'userId'});
 Fine.belongsTo(User, { foreignKey: 'userId' });
